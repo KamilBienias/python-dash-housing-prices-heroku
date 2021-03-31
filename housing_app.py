@@ -169,7 +169,10 @@ app.layout = html.Div([
         html.H6('Danymi wejściowymi są ilość pokoi oraz powierzchnia w metrach kwadratowych.'),
         html.H6('Dane oraz ceny potrzebne do trenowania modelu są scrapowane z portalu morizon.pl'),
         html.H6('z pierwszych 18 podstron (na każdej 35 ofert) posortowane od najniższej ceny.'),
-        html.A('http://morizon.pl/mieszkania/najtansze/bialystok/'),
+        html.Div([
+            html.A('http://morizon.pl/mieszkania/najtansze/bialystok/'),
+            ], style={'background-color': "white"}
+        )
     ], style={'textAlign': 'center'}),
     html.Hr(),
     html.Div([
