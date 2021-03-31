@@ -1,0 +1,1 @@
+web: gunicorn housing_app:server
