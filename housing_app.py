@@ -153,7 +153,7 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 # nazwa __name__ to zmienna środowiskowa
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 # potrzebne do heroku
-# server = app.server
+server = app.server
 
 df = scrape_and_save_to_df()
 model = create_model(df)
@@ -248,7 +248,7 @@ def predict_value(val1, val2):
         ], style={'background-color': '#AF90C2', 'width': '60%', 'margin': '0 auto'})
 
 
-if __name__ == '__main__':
-    app.run_server(debug=True)
+# if __name__ == '__main__':
+#     app.run_server(debug=True)
 
 
