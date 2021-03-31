@@ -166,15 +166,13 @@ app.layout = html.Div([
     html.Div([
         html.H3('Regresyjny Model Uczenia Maszynowego - RandomForestRegressor.'),
         html.H3('Przewidywanie ceny mieszkania w Białymstoku.'),
-        html.H6('Danymi wejściowymi są ilość pokoi oraz powierzchnia w metrach kwadratowych.'),
-        html.H6('Dane oraz ceny potrzebne do trenowania modelu są scrapowane z portalu morizon.pl'),
+        html.H6('Ilość pokoi, powierzchnia oraz ceny potrzebne do trenowania modelu są scrapowane z portalu morizon.pl'),
         html.H6('z pierwszych 18 podstron (na każdej 35 ofert) posortowane od najniższej ceny.'),
         html.Div([
             html.A('http://morizon.pl/mieszkania/najtansze/bialystok/'),
             ], style={'background-color': "white"}
         )
     ], style={'textAlign': 'center'}),
-    html.Hr(),
     html.Div([
         html.Label('Podaj ilość pokoi:'),
         dcc.Slider(
@@ -216,9 +214,8 @@ app.layout = html.Div([
 def display_parameters(val1, val2):
     if val1 and val2:
         return html.Div([
-            html.H6(f'Ilość pokoi: {val1}'),
-            html.H6(f'Rozmiar w metrach kwadratowych: {val2}')
-        ], style={'textAlign': 'left'})
+            html.H6(f'{val1} pok. oraz {val2} m kw.')
+        ], style={'textAlign': 'center'})
     else:
         return html.Div([
             html.H6('Podaj wszystkie parametry.')
