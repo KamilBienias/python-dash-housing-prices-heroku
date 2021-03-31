@@ -185,10 +185,10 @@ app.layout = html.Div([
         html.Label('Podaj liczbę metrów kwadratowych:'),
         dcc.Slider(
             id='slider-2',
-            min=df["all_areas"].min(),
-            max=df["all_areas"].max(),
+            min=20,
+            max=100,
             step=1,
-            marks={i: str(i) for i in range(df["all_areas"].min(), df["all_areas"].min()+1)},
+            marks={i: str(i) for i in range(20, 101, 10)},
             tooltip={'placement': 'bottom'}
         ),
 
