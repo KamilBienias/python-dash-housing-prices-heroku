@@ -40,11 +40,17 @@ def scrape_and_save_to_df(num_pages=18):
                 # print(one_site_prices_per_m2)
             except ValueError as e:
                 print("Nie podano ceny dla", len(one_site_prices_per_m2))
-                # przypisuje do listy cene za m2 z poprzedniego mieszkania
-                one_site_prices_per_m2 = np.append(one_site_prices_per_m2, one_site_prices_per_m2[len(one_site_prices_per_m2)-1])
+                # jesli nie podano ceny najtanszego mieszkania na pierwszej podstronie
+                # to przypisz cene za m2 rown 6000
+                if len(all_prices_per_m2) == 0:
+                    one_site_prices_per_m2 = np.append(one_site_prices_per_m2, 6000)
+                else:
+                    # przypisuje do listy cene za m2 z poprzedniego mieszkania
+                    # one_site_prices_per_m2 = np.append(one_site_prices_per_m2, one_site_prices_per_m2[len(one_site_prices_per_m2)-1])
+                    one_site_prices_per_m2 = np.append(one_site_prices_per_m2, all_prices_per_m2[-1])
         # do calej listy dodaje liste z jednej podstrony
         all_prices_per_m2 = np.append(all_prices_per_m2, one_site_prices_per_m2)
-
+        # print(all_prices_per_m2)
 
         for ul in soup("ul", {"class": "param list-unstyled list-inline"}):
             # licznik w ilu li jest pokoj
